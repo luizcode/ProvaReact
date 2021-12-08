@@ -31,8 +31,8 @@ export const Header: React.FC = () => {
           {path === '/new-bet' && <LinkTo to="/home">Home</LinkTo>}
         </ContentTitle>
         <Session>
-        <ProfileButton onClick={() => navigate('/account')}>
-            My Account
+          <ProfileButton onClick={() => navigate('/account')}>
+            ${name}
           </ProfileButton>
           <LogoutButton onClick={() => navigate('/')}>
             Log out <HiArrowRight />
