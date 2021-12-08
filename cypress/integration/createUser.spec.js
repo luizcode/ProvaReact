@@ -14,6 +14,7 @@ describe('App.Bet', () => {
         cy.get(':nth-child(1) > .sc-pVTFL').type("admin@admin.com");
         cy.get(':nth-child(2) > .sc-pVTFL').type("admin123");
         cy.get('.sc-eCImPb > :nth-child(2)').click();
-    })
+    });
+
 
 });
