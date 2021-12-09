@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
         </ContentTitle>
         <Session>
           <ProfileButton onClick={() => navigate('/account')}>
-            ${name}
+            {name}
           </ProfileButton>
           <LogoutButton onClick={() => navigate('/')}>
             Log out <HiArrowRight />
