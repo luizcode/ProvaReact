@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-describe('App.Bet', () => {
+describe('App.Bet-Case-Sucess', () => {
     it('Fazer cadastro de usuario', () => {
         cy.visit("http://localhost:3000/");
         cy.get('.gYoDgS').click();
@@ -53,6 +53,5 @@ describe('App.Bet', () => {
     it("Salvar o game", () => {
         cy.get('.sc-dJjYzT').click();
     })
-
 
 });
