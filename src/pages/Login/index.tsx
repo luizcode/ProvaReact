@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { authActions } from '@store/auth-slice';
 
-import { AuthComponent ,BoxAside , Footer , InputForm} from '@components/index';
+import { AuthComponent, BoxAside, Footer, InputForm } from '@components/index';
 
 import { LinkTo } from './styles';
 

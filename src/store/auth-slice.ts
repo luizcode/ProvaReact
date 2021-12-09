@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 interface UserProps {
   name: string;
@@ -99,19 +100,23 @@ const authSlice = createSlice({
         }
       }
       else if (type === 'emailRedefine') {
-      const emailIsValid = value.trim().length > 0 && value.includes('@');
+        const emailIsValid = value.trim().length > 0 && value.includes('@');
 
-      const emailExists =
-        state.users.some(user => user.email === value) &&
-        !state.userLogged.email;
+        const emailExists =
+          state.users.some(user => user.email === value) &&
+          !state.userLogged.email;
 
-      if (emailExists) {
-        state.emailMessage = 'Este email ja esta em uso';
-      } else if (!emailIsValid) {
-        state.emailMessage = 'email invalido.';
-      } else if (!emailExists && emailIsValid) {
-        state.emailMessage = '';
-      }
+        if (emailExists) {
+          toast.warn(
+            `Este email ja esta em uso`
+          );
+        } else if (!emailIsValid) {
+          toast.warn(
+            `Este email é invalido`
+          );
+        } else if (!emailExists && emailIsValid) {
+          state.emailMessage = '';
+        }
       }
     },
     onLogin(state, action) {
@@ -134,8 +139,12 @@ const authSlice = createSlice({
             isLoggedIn: true
           };
         } else {
-           state.emailMessage = 'Incorrect email';
+          state.passwordMessage = 'Erro em login';
+          state.emailMessage = 'Erro em login';
         }
+      } else {
+        state.emailMessage = 'Erro em login';
+        state.passwordMessage = 'Erro em login';
       }
     },
     onLogout(state, action) {
@@ -173,7 +182,9 @@ const authSlice = createSlice({
           if (userLogged) {
             state.isMessageInitial = false;
             userLogged.password = '000000';
-            alert('Senha reedefinida');
+            toast.success(
+              `Senha alterada com sucesso`
+            );
           }
         }
       } else {
